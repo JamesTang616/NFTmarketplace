@@ -50,6 +50,7 @@ const NFTSectionsMenuItems = ({ section, sections, onSectionClick }: Props) => {
           />
           {[
             Section.WEARABLES,
+            Section.WEARABLES_TRENDING,
             Section.WEARABLES_HEAD,
             Section.WEARABLES_FACIAL_HAIR,
             Section.WEARABLES_HAIR,

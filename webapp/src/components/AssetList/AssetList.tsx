@@ -25,17 +25,22 @@ const AssetList = (props: Props) => {
 
   const assets: (NFT | Item)[] = assetType === AssetType.ITEM ? items : nfts
 
-  const handleLoadMore = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    const newPage = page + 1
-    onBrowse({ page: newPage })
-    getAnalytics().track('Load more', { page: newPage })
-  }, [onBrowse, page])
+  const handleLoadMore = useCallback(
+    (e: React.MouseEvent<HTMLButtonElement>) => {
+      e.preventDefault()
+      const newPage = page + 1
+      onBrowse({ page: newPage })
+      getAnalytics().track('Load more', { page: newPage })
+    },
+    [onBrowse, page]
+  )
 
   const maxQuerySize = getMaxQuerySize(vendor)
 
   const hasExtraPages =
-    (assets.length !== count || count === maxQuerySize) && page <= MAX_PAGE
+    !!count &&
+    (assets.length !== count || count === maxQuerySize) &&
+    page <= MAX_PAGE
 
   const isLoadingNewPage = isLoading && nfts.length >= PAGE_SIZE
 
@@ -67,10 +72,10 @@ const AssetList = (props: Props) => {
       hasExtraPages &&
       (!isLoading || isLoadingNewPage) ? (
         <div className="load-more">
-          <Button 
-            as="a" 
-            href={urlNext} 
-            loading={isLoading} 
+          <Button
+            as="a"
+            href={urlNext}
+            loading={isLoading}
             inverted
             primary
             onClick={handleLoadMore}

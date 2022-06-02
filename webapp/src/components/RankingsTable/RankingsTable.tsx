@@ -11,7 +11,7 @@ import {
 } from 'decentraland-ui'
 import { t } from 'decentraland-dapps/dist/modules/translation/utils'
 import { AnalyticsTimeframe } from '../../modules/analytics/types'
-import { Props } from './AnalyticsVolumeDayData.types'
+import { Props } from './RankingsTable.types'
 import { formatAnalyticsVolume, formatDailySales } from './utils'
 import './AnalyticsVolumeDayData.css'
 

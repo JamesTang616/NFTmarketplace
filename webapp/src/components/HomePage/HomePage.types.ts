@@ -9,6 +9,11 @@ import {
   FetchAssetsFromRouteAction
 } from '../../modules/routing/actions'
 
+export enum HomeSectionType {
+  SLIDESHOW,
+  TABLE
+}
+
 export type Props = {
   homepage: ReturnType<typeof getHomepage>
   homepageLoading: ReturnType<typeof getHomepageLoading>
